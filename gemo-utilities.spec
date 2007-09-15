@@ -2,7 +2,7 @@
 
 %define	name	gemo-utilities
 %define	version	20070201
-%define	release	%mkrel 3
+%define	release	%mkrel 4
 %define	jarlibs	xalan-j2
 
 Name:		%{name}
@@ -18,8 +18,6 @@ BuildRequires:	lzma
 BuildRequires:	jpackage-utils java-devel ant %{jarlibs}
 Requires:	%{jarlibs}
 %if %{gcj_support}
-Requires(post):   java-gcj-compat
-Requires(postun): java-gcj-compat
 BuildRequires:    java-gcj-compat-devel
 %else
 BuildArch: noarch
