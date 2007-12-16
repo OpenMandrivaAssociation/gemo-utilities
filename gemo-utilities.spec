@@ -2,7 +2,7 @@
 
 %define	name	gemo-utilities
 %define	version	20070201
-%define	release	%mkrel 4
+%define	release	%mkrel 5
 %define	jarlibs	xalan-j2
 
 Name:		%{name}
@@ -15,7 +15,7 @@ Url:		http://forge.objectweb.org/projects/activexml/
 # from cvs
 Source0:	%{name}-%{version}.tar.lzma
 BuildRequires:	lzma
-BuildRequires:	jpackage-utils java-devel ant %{jarlibs}
+BuildRequires:	java-rpmbuild java-devel ant %{jarlibs}
 Requires:	%{jarlibs}
 %if %{gcj_support}
 BuildRequires:    java-gcj-compat-devel
