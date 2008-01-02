@@ -22,6 +22,7 @@ BuildRequires:    java-gcj-compat-devel
 %else
 BuildArch: noarch
 %endif
+BuildRoot:	%{_tmppath}/%{name}-%{version}-%{release}-buildroot
 
 %description
 Gemo Utilities
