@@ -2,7 +2,7 @@
 
 %define	name	gemo-utilities
 %define	version	20070201
-%define	release	%mkrel 9
+%define	release	10
 %define	jarlibs	xalan-j2
 
 Name:		%{name}
@@ -22,7 +22,7 @@ BuildRequires:    java-gcj-compat-devel
 %else
 BuildArch: noarch
 %endif
-BuildRoot:	%{_tmppath}/%{name}-%{version}-%{release}-buildroot
+BuildRequires:    locales-en
 
 %description
 Gemo Utilities
@@ -33,6 +33,7 @@ Gemo Utilities
 rm -rf lib
 
 %build
+export LC_ALL=ISO-8859-1
 CLASSPATH=$(build-classpath %{jarlibs}) \
 %{ant} dist -DDSTAMP=%{version}
 %{jar} -i dist/%{name}-%{version}.jar
@@ -65,4 +66,48 @@ rm -rf %{buildroot}
 %dir %{_libdir}/gcj/%{name}
 %attr(-,root,root) %{_libdir}/gcj/%{name}/*
 
+
+
+
+%changelog
+* Thu Dec 09 2010 Oden Eriksson <oeriksson@mandriva.com> 20070201-9mdv2011.0
++ Revision: 618447
+- the mass rebuild of 2010.0 packages
+
+* Fri Sep 04 2009 Thierry Vignaud <tv@mandriva.org> 20070201-8mdv2010.0
++ Revision: 429190
+- rebuild
+
+* Thu Jul 24 2008 Thierry Vignaud <tv@mandriva.org> 20070201-7mdv2009.0
++ Revision: 245880
+- rebuild
+- kill re-definition of %%buildroot on Pixel's request
+
+  + Olivier Blin <oblin@mandriva.com>
+    - restore BuildRoot
+
+* Sun Dec 16 2007 Anssi Hannula <anssi@mandriva.org> 20070201-5mdv2008.1
++ Revision: 120882
+- buildrequire java-rpmbuild, i.e. build with icedtea on x86(_64)
+
+* Sat Sep 15 2007 Anssi Hannula <anssi@mandriva.org> 20070201-4mdv2008.0
++ Revision: 87377
+- rebuild to filter out autorequires of GCJ AOT objects
+- remove unnecessary Requires(post) on java-gcj-compat
+
+* Sun Sep 09 2007 Pascal Terjan <pterjan@mandriva.org> 20070201-3mdv2008.0
++ Revision: 82803
+- update to new version
+
+
+* Sat Feb 03 2007 David Walluck <walluck@mandriva.org> 20070201-2mdv2007.0
++ Revision: 116036
+- aot compile
+
+  + Per Øyvind Karlsen <pkarlsen@mandriva.com>
+    - d'oh, rm -rf in stead of rm -f lib
+    - ensure that proper version is created based on snapshot date and not current date
+      misc packaging fixes
+    - do actually export CLASSPATH
+    - Import gemo-utilities
 
