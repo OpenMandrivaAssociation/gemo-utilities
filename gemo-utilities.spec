@@ -2,7 +2,7 @@
 
 %define	name	gemo-utilities
 %define	version	20070201
-%define	release	10
+%define release	11
 %define	jarlibs	xalan-j2
 
 Name:		%{name}
