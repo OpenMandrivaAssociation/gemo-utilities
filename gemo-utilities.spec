@@ -11,7 +11,7 @@ Release:	%{release}
 Summary:	Gemo Utilities
 License:	LGPL
 Group:		Development/Java
-Url:		http://forge.objectweb.org/projects/activexml/
+Url:		https://forge.objectweb.org/projects/activexml/
 # from cvs
 Source0:	%{name}-%{version}.tar.lzma
 BuildRequires:	lzma
